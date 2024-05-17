@@ -2,6 +2,7 @@ import { reactive } from "vue";
 import { Book } from "./models/Book.js";
 
 export const AppState = reactive({
+  /**@type {Book[]} */
   books: [
     new Book({
       title: 'Seeking the Fight',
@@ -11,7 +12,8 @@ export const AppState = reactive({
       amazonPreviewLink: 'https://read.amazon.com/kp/embed?asin=B0CG9W5J67&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_FMSK9RN7DX3AG7P9WX50'
     }),
     new Book({
-      title: 'The Dramondorr: A Short Fantasy Tale',
+      title: 'The Dramondorr',
+      subtitle: 'A Short Fantasy Tale',
       description: `In this short story, Kate isn't like the other girls in the kingdom of Laurient. She speaks her mind, shuns fancy clothing, and isn't afraid to go out into the forests by herself...even if she encounters thieves or bandits. The only things she is afraid of is Laurient's demise. The Marnigans are invading from the south, and Kate is helpless to prevent her kingdom's infiltration. She is also helpless as she learns that her childhood friend, the only other person to ever understand her and the heir to Laurient's throne, is on the front lines. He won't back down from the Marnigans, even if the battle is hopeless. Laurient's hope for survival is as dim as the memory of a long ago legend, telling of a dragon like creature that gave up its freedom to save a young girl because she tried to free him. This is a short fairytale story, not a full length novel.
       `,
       amazonPurchaseLink: 'https://a.co/d/gkcU1Od',
@@ -19,5 +21,24 @@ export const AppState = reactive({
     })
   ],
 
-  activeBook: null
+  /**@type {Book} */
+  activeBook: null,
+
+  socialMedias: [
+    {
+      icon: 'mdi-instagram',
+      url: 'https://www.instagram.com/',
+      name: 'Instagram'
+    },
+    {
+      icon: 'mdi-facebook',
+      url: 'https://www.facebook.com/',
+      name: 'Facebook'
+    },
+    {
+      icon: 'mdi-linkedin',
+      url: 'https://www.linkedin.com/',
+      name: 'Linkedin'
+    },
+  ]
 })

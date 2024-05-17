@@ -1,27 +1,32 @@
 <script setup>
 import { AppState } from '@/appstate.js';
-import { computed, onMounted } from 'vue';
+import { onBeforeMount } from 'vue';
 import { booksService } from '../services/BooksService.js'
+import AuthorIntro from '@/components/AuthorIntro.vue';
 import ActiveBook from '@/components/ActiveBook.vue';
+import AllBooks from '@/components/AllBooks.vue';
+import AuthorBio from '@/components/AuthorBio.vue';
 
 function setFirstBookAsActive() {
-  booksService.setActiveBook(books.value[0])
+  booksService.setActiveBook(AppState.books[0])
 }
 
-const books = computed(() => AppState.books)
 
-onMounted(setFirstBookAsActive)
+onBeforeMount(setFirstBookAsActive)
 
 </script>
 
 <template>
-  <div class="container">
+  <div class="container-fluid">
+
+    <AuthorIntro />
+
     <ActiveBook />
-    <section class="row">
-      <div v-for="book in books" :key="book.title" class="col-12 col-md-4">
-        <img class="img-fluid" :src="book.imgFilePath" alt="">
-      </div>
-    </section>
+
+    <AllBooks />
+
+    <AuthorBio />
+
   </div>
 </template>
 
